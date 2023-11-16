@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
+from django_resized import ResizedImageField
 
 # def get_default_user_id():
 #     return User.objects.first()
@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to="uploads/", null=True, blank=True)
+    image = ResizedImageField(size=[1000, 1000], upload_to="uploads/", null=True, blank=True)
     likes = models.IntegerField(default=0)
     def __str__(self):
         return self.title
