@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Post/{{ post.post_id }}
+{% endblock title %}
+
+{% block content %}
+<div class="post">
+    <div class="username">
+        <h4>{{ post.author.username }}</h4>
+    </div>
+    <div class="post-image">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    </div>
+    <ul class="other-info">
+        <li class="likes">hwwwo</li>
+        <li class="comment">
+            fdjfhasdf
+        </li>
+        <li class="share">
+            adkjfnasdf
+        </li>
+    </ul>
+    <div class="post-title">
+        <h5>{{ post.title }}</h5>
+    </div>
+    <div class="comments">
+        <!-- <form action="POST"></form> -->
+    </div>
+</div>
+{% endblock content%}
